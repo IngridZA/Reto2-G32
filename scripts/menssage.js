@@ -23,7 +23,7 @@ function obtenerMessage(){
                 <td>${element.id}</td>
                 <td>${element.messagetext}</td>
                 <td><button class="btn btn-info" onclick="obtenerPorIdMessage(${element.id})>Detalles</button></td>
-                <td><button>Eliminar</button></td>
+                <td><button class="btn btn-info" eliminarMessage(${element.id})>Eliminar</button></td>
             </tr>
             `
         
@@ -39,7 +39,7 @@ function crearMessage(){
 
     var raw = JSON.stringify({
     "id": id.value,
-    "messageText": "El carro solicitado no es el adquirido"
+    "messageText": messageText.value
     });
 
     var requestOptions = {
@@ -69,7 +69,7 @@ function actualizarMessage(){
 
     var raw = JSON.stringify({
     "id": id.value,
-    "messageText": "El carro solicitado fue adquirido"
+    "messageText": messageText.value
     });
 
     var requestOptions = {
@@ -79,18 +79,18 @@ function actualizarMessage(){
     redirect: 'follow'
 };
 
-fetch("https://g42644ab66fd251-u9bp01khm58jlzzn.adb.us-chicago-1.oraclecloudapps.com/ords/admin/message/message", requestOptions)
-  .then(response => response.json())
-  .then(result => {
-    if(result.status == 201){
-        alert("Se modificó el mensaje")
-    }else{
-        alert("no se modificó el mensaje")
+    fetch("https://g42644ab66fd251-u9bp01khm58jlzzn.adb.us-chicago-1.oraclecloudapps.com/ords/admin/message/message", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+        if(result.status == 201){
+            alert("Se modificó el mensaje")
+        }else{
+            alert("no se modificó el mensaje")
 
-    }
+        }
     
-  })
-  .catch(error => console.log('error', error));
+    })
+    .catch(error => console.log('error', error));
 
 }
 function eliminarMessage(){
@@ -111,9 +111,10 @@ function eliminarMessage(){
 
     fetch("https://g42644ab66fd251-u9bp01khm58jlzzn.adb.us-chicago-1.oraclecloudapps.com/ords/admin/message/message", requestOptions)
     .then(response => response.json())
-    .then(result => {
-            if(response.status == 204){
+    .then(response => {
+        if(response.status == 204){
             alert("Se eliminó el mensaje")
+             location.reload()
         }else{
             alert("no se pudo eliminar el mensaje")
         }
