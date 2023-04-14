@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./car.html">Car</a></li>
+            <li><a href="./client.html">Client</a></li>
+            <li><a href="./message.html">Message</a></li>
+        </ul>
+    </nav>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>BRAND</th>
+                <th>MODEL</th>
+                <th>CATEGORY_ID</th>
+                <th>DETALLES</th>
+                <th>ELIMINAR</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+           
+        </tbody>
+    </table>
+    <br>
+
+    <div>
+        <br>
+        <div>
+            <label for="txtId">ID</label>
+            <input id="txtId" type="number"placeholder="Ingrese el id">
+        </div>
+        <br>
+        <div>
+            <label for="txtBrand">BRAND</label>
+            <input id="txtBrand" type="text"placeholder="Ingrese la marca">
+        </div>
+        <br>
+        <div>
+            <label for="txtModel">MODEL</label>
+            <input id="txtModel" type="number"placeholder="Ingrese el modelo">
+        </div>
+        <br>
+        <div>
+            <label for="txtCategory_id">CATEGORY_ID</label>
+            <input id="txtCategory_id" type="number"placeholder="Ingrese el id de la categoría">
+        </div>
+        <br>
+        <button class="btn btn-primary" onclick="crearCar()" >Crear</button>
+       <button>Actualizar</button>
+       <button>Cancelar</button>
+    </div>
+
+    <script src="./scripts/car.js"></script>
+</body>
+</html>
